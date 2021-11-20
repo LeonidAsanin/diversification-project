@@ -1,23 +1,46 @@
 package price;
 
-import Assets.Ticker;
+import assets.FinExTicker;
+import assets.Ticker;
+import assets.VTBTicker;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 
 public class PriceGetter {
-    public static double get(Ticker ticker) throws NumberFormatException {
-        String currentPrice = "Not found";
+    private PriceGetter(){}
+
+    public static <T extends Ticker> double get(T ticker) throws NumberFormatException {
+        if (ticker instanceof FinExTicker)
+            return getForFinEx((FinExTicker) ticker);
+        if (ticker instanceof VTBTicker)
+            return 100;//test value
+        return 0;
+    }
+
+    private static double getForFinEx(FinExTicker ticker) {
+        String currentPrice = "";
         double thousands = 0;
+        URLConnection urlConnection;
 
         try {
             var url = new URL("https://finex-etf.ru/products/" + ticker);
-            var urlConnection = url.openConnection();
-            var inputStream = urlConnection.getInputStream();
-            var bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            urlConnection = url.openConnection();
+        } catch (MalformedURLException e) {
+            System.out.println("Error in the URL address");
+            return 0;
+        } catch (IOException e) {
+            System.out.println("Error of Input/Output");
+            return 0;
+        }
+
+        try (var inputStream = urlConnection.getInputStream();
+             var bufferedReader = new BufferedReader(new InputStreamReader(inputStream))){
+
             String infoString;
 
             //marker substring for search required string with price data
@@ -48,10 +71,8 @@ public class PriceGetter {
                     break;
                 }
             }
-        } catch (MalformedURLException e) {
-            System.out.println("Error in the URL address");
         } catch (IOException e) {
-            System.out.println("Error of Input/Output");
+            System.out.println("IOException from BufferedReader");
         }
 
         return thousands * 1000 + Double.parseDouble(currentPrice);
