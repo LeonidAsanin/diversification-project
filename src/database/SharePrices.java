@@ -2,6 +2,7 @@ package database;
 
 import assets.FinExTicker;
 import assets.Ticker;
+import assets.VTBTicker;
 import price.PriceGetter;
 
 import java.util.HashMap;
@@ -13,13 +14,10 @@ public class SharePrices {
     private SharePrices(){}
 
     public static void update() {
-        for (FinExTicker ticker : FinExTicker.values()) {
-            try {
-                priceMap.put(ticker,PriceGetter.get(ticker));
-            } catch (NumberFormatException e) {
-                System.out.println("Cannot get " + ticker + " price");
-            }
-        }
+        for (var ticker : FinExTicker.values())
+            update(ticker);
+        for (var ticker : VTBTicker.values())
+            update(ticker);
     }
 
     public static void update(Ticker ticker) {

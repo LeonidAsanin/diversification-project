@@ -2,34 +2,33 @@ package database;
 
 import assets.FinExTicker;
 import assets.Ticker;
+import assets.VTBTicker;
 import diversificationCriterion.Country;
 
 import java.util.*;
 
-public class ShareOfCountryInAsset {
+public class ShareOfCountryInAssetMatrix {
     private static final Map<Ticker, Double[]> coefficientMap = new HashMap<>();
 
-    public ShareOfCountryInAsset() {
-        for (Map.Entry<Ticker, Double[]> entry : coefficientMap.entrySet()) {
-            var sum = 0.;
-            for (double share : entry.getValue())
-                sum += share;
-            System.out.println(entry.getKey() + ": " + sum);
-        }
+    private ShareOfCountryInAssetMatrix() {}
+
+    public static double getShare(Country country, Ticker ticker) {
+        return coefficientMap.get(ticker)[country.getIndex()];
     }
 
     static {
-        var coefficientArray = new Double[30];
+        var arraySize = Country.values().length;
+        var coefficientArray = new Double[arraySize];
         Arrays.fill(coefficientArray,0.);
         coefficientArray[Country.China.getIndex()] = 1.;
         coefficientMap.put(FinExTicker.FXCN, coefficientArray);
 
-        coefficientArray = new Double[30];
+        coefficientArray = new Double[arraySize];
         Arrays.fill(coefficientArray,0.);
         coefficientArray[Country.Germany.getIndex()] = 1.;
         coefficientMap.put(FinExTicker.FXDE, coefficientArray);
 
-        coefficientArray = new Double[30];
+        coefficientArray = new Double[arraySize];
         Arrays.fill(coefficientArray,0.);
         coefficientArray[Country.Japan.getIndex()] = .1755;
         coefficientArray[Country.France.getIndex()] = .1175;
@@ -50,7 +49,7 @@ public class ShareOfCountryInAsset {
         coefficientArray[Country.Belgium.getIndex()] = .004;
         coefficientMap.put(FinExTicker.FXDM, coefficientArray);
 
-        coefficientArray = new Double[30];
+        coefficientArray = new Double[arraySize];
         Arrays.fill(coefficientArray,0.);
         coefficientArray[Country.USA.getIndex()] = .457;
         coefficientArray[Country.Japan.getIndex()] = .181;
@@ -62,54 +61,63 @@ public class ShareOfCountryInAsset {
         coefficientArray[Country.Poland.getIndex()] = .013;
         coefficientMap.put(FinExTicker.FXES, coefficientArray);
 
-        coefficientArray = new Double[30];
+        coefficientArray = new Double[arraySize];
         Arrays.fill(coefficientArray,0.);
         coefficientArray[Country.USA.getIndex()] = .957;
         coefficientArray[Country.Luxembourg.getIndex()] = .043;
         coefficientMap.put(FinExTicker.FXFA, coefficientArray);
 
-        coefficientArray = new Double[30];
+        coefficientArray = new Double[arraySize];
+        Arrays.fill(coefficientArray,0.);
+        coefficientMap.put(FinExTicker.FXGD, coefficientArray);
+
+        coefficientArray = new Double[arraySize];
         Arrays.fill(coefficientArray,0.);
         coefficientArray[Country.USA.getIndex()] = 1.;
         coefficientMap.put(FinExTicker.FXIM, coefficientArray);
 
-        coefficientArray = new Double[30];
+        coefficientArray = new Double[arraySize];
         Arrays.fill(coefficientArray,0.);
         coefficientArray[Country.USA.getIndex()] = 1.;
         coefficientMap.put(FinExTicker.FXIP, coefficientArray);
 
-        coefficientArray = new Double[30];
+        coefficientArray = new Double[arraySize];
         Arrays.fill(coefficientArray,0.);
         coefficientArray[Country.USA.getIndex()] = 1.;
         coefficientMap.put(FinExTicker.FXIT, coefficientArray);
 
-        coefficientArray = new Double[30];
+        coefficientArray = new Double[arraySize];
         Arrays.fill(coefficientArray,0.);
         coefficientArray[Country.Kazakhstan.getIndex()] = 1.;
         coefficientMap.put(FinExTicker.FXKZ, coefficientArray);
 
-        coefficientArray = new Double[30];
+        coefficientArray = new Double[arraySize];
         Arrays.fill(coefficientArray,0.);
         coefficientArray[Country.USA.getIndex()] = 1.;
         coefficientMap.put(FinExTicker.FXMM, coefficientArray);
 
-        coefficientArray = new Double[30];
+        coefficientArray = new Double[arraySize];
         Arrays.fill(coefficientArray,0.);
         coefficientArray[Country.Russia.getIndex()] = 1.;
         coefficientMap.put(FinExTicker.FXRB, coefficientArray);
 
-        coefficientArray = new Double[30];
+        coefficientArray = new Double[arraySize];
         Arrays.fill(coefficientArray,0.);
         coefficientArray[Country.USA.getIndex()] = .957;
         coefficientArray[Country.Luxembourg.getIndex()] = .043;
         coefficientMap.put(FinExTicker.FXRD, coefficientArray);
 
-        coefficientArray = new Double[30];
+        coefficientArray = new Double[arraySize];
         Arrays.fill(coefficientArray,0.);
         coefficientArray[Country.Russia.getIndex()] = 1.;
         coefficientMap.put(FinExTicker.FXRL, coefficientArray);
 
-        coefficientArray = new Double[30];
+        coefficientArray = new Double[arraySize];
+        Arrays.fill(coefficientArray,0.);
+        coefficientArray[Country.Russia.getIndex()] = 1.;
+        coefficientMap.put(FinExTicker.FXRU, coefficientArray);
+
+        coefficientArray = new Double[arraySize];
         Arrays.fill(coefficientArray,0.);
         coefficientArray[Country.USA.getIndex()] = .4;
         coefficientArray[Country.Japan.getIndex()] = .2;
@@ -120,22 +128,22 @@ public class ShareOfCountryInAsset {
         coefficientArray[Country.Russia.getIndex()] = .031;
         coefficientMap.put(FinExTicker.FXRW, coefficientArray);
 
-        coefficientArray = new Double[30];
+        coefficientArray = new Double[arraySize];
         Arrays.fill(coefficientArray,0.);
         coefficientArray[Country.USA.getIndex()] = 1.;
         coefficientMap.put(FinExTicker.FXTB, coefficientArray);
 
-        coefficientArray = new Double[30];
+        coefficientArray = new Double[arraySize];
         Arrays.fill(coefficientArray,0.);
         coefficientArray[Country.USA.getIndex()] = 1.;
         coefficientMap.put(FinExTicker.FXTP, coefficientArray);
 
-        coefficientArray = new Double[30];
+        coefficientArray = new Double[arraySize];
         Arrays.fill(coefficientArray,0.);
         coefficientArray[Country.USA.getIndex()] = 1.;
         coefficientMap.put(FinExTicker.FXUS, coefficientArray);
 
-        coefficientArray = new Double[30];
+        coefficientArray = new Double[arraySize];
         Arrays.fill(coefficientArray,0.);
         coefficientArray[Country.USA.getIndex()] = .4;
         coefficientArray[Country.Japan.getIndex()] = .2;
@@ -145,5 +153,55 @@ public class ShareOfCountryInAsset {
         coefficientArray[Country.Australia.getIndex()] = .055;
         coefficientArray[Country.Russia.getIndex()] = .031;
         coefficientMap.put(FinExTicker.FXWO, coefficientArray);
+
+        coefficientArray = new Double[arraySize];
+        Arrays.fill(coefficientArray,0.);
+        coefficientArray[Country.USA.getIndex()] = 1.;
+        coefficientMap.put(VTBTicker.VTBA, coefficientArray);
+
+        coefficientArray = new Double[arraySize];
+        Arrays.fill(coefficientArray,0.);
+        coefficientArray[Country.Russia.getIndex()] = 1.;
+        coefficientMap.put(VTBTicker.VTBB, coefficientArray);
+
+        coefficientArray = new Double[arraySize];
+        Arrays.fill(coefficientArray,0.);
+        coefficientArray[Country.China.getIndex()] = .3101;
+        coefficientArray[Country.Taiwan.getIndex()] = .1616;
+        coefficientArray[Country.India.getIndex()] = .1318;
+        coefficientArray[Country.South_Korea.getIndex()] = .1257;
+        coefficientArray[Country.Brazil.getIndex()] = .0369;
+        coefficientArray[Country.Russia.getIndex()] = .0344;
+        coefficientArray[Country.South_Africa.getIndex()] = .0317;
+        coefficientArray[Country.Saudi_Arabia.getIndex()] = .0293;
+        coefficientArray[Country.Thailand.getIndex()] = .0192;
+        coefficientArray[Country.Mexico.getIndex()] = .0181;
+        coefficientArray[Country.Malaysia.getIndex()] = .015;
+        coefficientArray[Country.Indonesia.getIndex()] = .0145;
+        coefficientMap.put(VTBTicker.VTBE, coefficientArray);//add
+
+        coefficientArray = new Double[arraySize];
+        Arrays.fill(coefficientArray,0.);
+        coefficientMap.put(VTBTicker.VTBG, coefficientArray);
+
+        coefficientArray = new Double[arraySize];
+        Arrays.fill(coefficientArray,0.);
+        coefficientArray[Country.USA.getIndex()] = 1.;
+        coefficientMap.put(VTBTicker.VTBH, coefficientArray);
+
+        coefficientArray = new Double[arraySize];
+        Arrays.fill(coefficientArray,0.);
+        coefficientArray[Country.Russia.getIndex()] = 1.;
+        coefficientMap.put(VTBTicker.VTBM, coefficientArray);
+
+        coefficientArray = new Double[arraySize];
+        Arrays.fill(coefficientArray,0.);
+        coefficientArray[Country.Russia.getIndex()] = 1.;
+        coefficientMap.put(VTBTicker.VTBU, coefficientArray);
+
+        coefficientArray = new Double[arraySize];
+        Arrays.fill(coefficientArray,0.);
+        coefficientArray[Country.Russia.getIndex()] = 1.;
+        coefficientMap.put(VTBTicker.VTBX, coefficientArray);
     }
 }
