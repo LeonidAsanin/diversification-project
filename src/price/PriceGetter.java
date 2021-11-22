@@ -24,8 +24,8 @@ public class PriceGetter {
 
     private static double getForFinEx(FinExTicker ticker) {
         String currentPrice = "";
-        double thousands = 0;
         URLConnection urlConnection;
+        double thousands = 0;
 
         try {
             var url = new URL("https://finex-etf.ru/products/" + ticker);

@@ -13,19 +13,19 @@ public class SharePrices {
 
     private SharePrices(){}
 
-    public static void update() {
+    public static void update(Ticker ticker) {
+        try {
+            priceMap.put(ticker,PriceGetter.get(ticker));
+        } catch (NumberFormatException e) {
+            System.out.println("Cannot get " + ticker + " price");
+        }
+    }
+
+    public static void updateAll() {
         for (var ticker : FinExTicker.values())
             update(ticker);
         for (var ticker : VTBTicker.values())
             update(ticker);
-    }
-
-    public static void update(Ticker ticker) {
-            try {
-                priceMap.put(ticker,PriceGetter.get(ticker));
-            } catch (NumberFormatException e) {
-                System.out.println("Cannot get " + ticker + " price");
-            }
     }
 
     public static double get(Ticker ticker) {
