@@ -10,8 +10,10 @@ public class EnteringOfShareQuantity {
 
     public static void enter(Ticker ticker, Scanner scanner) {
         var quantity = 0;
-        System.out.print(ticker + ": ");
         var correctInput = false;
+
+        System.out.print(ticker + ": ");
+
         while (!correctInput) {
             String inputLine = scanner.nextLine();
             try {
@@ -21,6 +23,7 @@ public class EnteringOfShareQuantity {
                 System.out.print("Please, enter an integer number: ");
             }
         }
+
         QuantityOfShares.put(ticker,quantity);
     }
 }

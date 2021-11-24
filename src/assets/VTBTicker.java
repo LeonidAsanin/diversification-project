@@ -10,13 +10,13 @@ public enum VTBTicker implements Ticker {
      * For example: for VTBE its page is "vtbfars":
      * https://www.vtbcapital-am.ru/products/bpif/vtbfars/investment_strategy/
      */
-    String pageOfTheFundOnTheOfficialSite;
+    String fundOfficialSitePage;
 
     VTBTicker(String mark) {
-        pageOfTheFundOnTheOfficialSite = mark;
+        fundOfficialSitePage = mark;
     }
 
-    public String getMarker() {
-        return pageOfTheFundOnTheOfficialSite;
+    public String getFundOfficialSitePage() {
+        return fundOfficialSitePage;
     }
 }

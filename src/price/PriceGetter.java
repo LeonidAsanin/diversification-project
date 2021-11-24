@@ -43,14 +43,14 @@ public class PriceGetter {
 
             String infoString;
 
-            //marker substring for search required string with price data
+            /* marker substring for search required string with price data */
             String requiredString = "data-testid=\"singleStockPrice\" class=\"css-10tevzg-FundTableDescription e1hxtrkz5\">";
 
             while ((infoString = bufferedReader.readLine()) != null) {
                 if (infoString.contains(requiredString)) {
                     int requiredIndex = infoString.indexOf(requiredString);
 
-                    //search for substring that contains price information excluding thousands
+                    /* search for substring that contains price information excluding thousands */
                     int end = infoString.indexOf('₽', requiredIndex);
                     while (infoString.charAt(end) != '<')
                         end--;
@@ -59,7 +59,7 @@ public class PriceGetter {
                         start--;
                     currentPrice = infoString.substring(start + 1, end);
 
-                    //obtaining thousands in price if present
+                    /* obtaining thousands in price if present */
                     int markerIndex = infoString.indexOf(requiredString) + requiredString.length();
                     String substringToFindThousandComponent = infoString.substring(markerIndex, markerIndex + 5);
                     if (substringToFindThousandComponent.contains(",")) {
@@ -84,7 +84,7 @@ public class PriceGetter {
 
         try {
             var url = new URL("https://www.vtbcapital-am.ru/products/bpif/" +
-                    ticker.getMarker() + "/investment_strategy/");
+                    ticker.getFundOfficialSitePage() + "/investment_strategy/");
             urlConnection = url.openConnection();
         } catch (MalformedURLException e) {
             System.out.println("Error in the URL address");
@@ -99,7 +99,7 @@ public class PriceGetter {
 
             String infoString;
 
-            //marker substring for search required string with price data
+            /* marker substring for search required string with price data */
             String requiredString = "Расчетная стоимость пая, рублей";
             var stringFoundMarker = false;
             while ((infoString = bufferedReader.readLine()) != null) {
@@ -108,7 +108,7 @@ public class PriceGetter {
                     continue;
                 }
                 if (stringFoundMarker) {
-                    //search for substring that contains price information
+                    /* search for substring that contains price information */
                     int end = infoString.indexOf('.');
                     while (infoString.charAt(end) != '<')
                         end++;

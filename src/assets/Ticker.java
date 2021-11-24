@@ -1,4 +1,3 @@
 package assets;
 
-public interface Ticker {
-}
+public interface Ticker {}
