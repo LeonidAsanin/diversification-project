@@ -5,13 +5,13 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class MapUtil {
-    public static <K, V extends Comparable<? super V>> Map<K,V> sortByValue(Map<K,V> map) {
+    public static <K, V extends Comparable<? super V>> Map<K, V> sortByValue(Map<K, V> map) {
         var mapEntries = new ArrayList<>(map.entrySet());
-        var sortedMap = new LinkedHashMap<K,V>();
+        var sortedMap = new LinkedHashMap<K, V>();
 
-        mapEntries.sort(Map.Entry.<K,V>comparingByValue().reversed());
+        mapEntries.sort(Map.Entry.<K, V>comparingByValue().reversed());
 
-        for (Map.Entry<K,V> entry : mapEntries) {
+        for (Map.Entry<K, V> entry : mapEntries) {
             sortedMap.put(entry.getKey(), entry.getValue());
         }
 

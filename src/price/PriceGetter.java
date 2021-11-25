@@ -12,7 +12,8 @@ import java.net.URL;
 import java.net.URLConnection;
 
 public class PriceGetter {
-    private PriceGetter() {}
+    private PriceGetter() {
+    }
 
     public static <T extends Ticker> double get(T ticker) {
         if (ticker instanceof FinExTicker)

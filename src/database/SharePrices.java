@@ -9,13 +9,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SharePrices {
-    private static final Map<Ticker,Double> priceMap = new HashMap<>();
+    private static final Map<Ticker, Double> priceMap = new HashMap<>();
 
-    private SharePrices(){}
+    private SharePrices() {
+    }
 
     public static void update(Ticker ticker) {
         try {
-            priceMap.put(ticker,PriceGetter.get(ticker));
+            priceMap.put(ticker, PriceGetter.get(ticker));
         } catch (NumberFormatException e) {
             System.out.println("Cannot get " + ticker + " price");
         }

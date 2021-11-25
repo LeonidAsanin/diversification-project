@@ -6,7 +6,8 @@ import database.QuantityOfShares;
 import java.util.Scanner;
 
 public class EnteringOfShareQuantity {
-    private EnteringOfShareQuantity() {}
+    private EnteringOfShareQuantity() {
+    }
 
     public static void enter(Ticker ticker, Scanner scanner) {
         var quantity = 0;
@@ -24,6 +25,6 @@ public class EnteringOfShareQuantity {
             }
         }
 
-        QuantityOfShares.put(ticker,quantity);
+        QuantityOfShares.put(ticker, quantity);
     }
 }

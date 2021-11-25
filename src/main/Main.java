@@ -14,7 +14,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        var priceInitializingThread =  new Thread(SharePrices::updateAll);
+        var priceInitializingThread = new Thread(SharePrices::updateAll);
         priceInitializingThread.setDaemon(true);
         priceInitializingThread.start();
 
@@ -29,28 +29,28 @@ public class Main {
         System.out.println();
         System.out.println("Your investment portfolio: ");
         var portfolioSum = 0.;
-        var portfolioMap = new HashMap<Ticker,Double>();
+        var portfolioMap = new HashMap<Ticker, Double>();
         for (var ticker : FinExTicker.values())
             portfolioSum += CalculationOfInvestmentPortfolio.returnTotalPriceByTickerAndPutIntoMap
-                            (ticker, portfolioMap);
+                    (ticker, portfolioMap);
         for (var ticker : VTBTicker.values())
             portfolioSum += CalculationOfInvestmentPortfolio.returnTotalPriceByTickerAndPutIntoMap
-                            (ticker, portfolioMap);
+                    (ticker, portfolioMap);
         System.out.println("------------------------------------------");
         System.out.print("Sum of all assets:\t\t");
         System.out.printf("%16.2f ₽\n", portfolioSum);
 
-        Map<Country,Double> diversificationMap = new HashMap<>();
+        Map<Country, Double> diversificationMap = new HashMap<>();
         for (Country country : Country.values()) {
             var totalShareInRubles = 0.;
             for (var ticker : FinExTicker.values())
-                totalShareInRubles += ShareOfCountryInAssetMatrix.getShare(country,ticker) *
-                                      portfolioMap.getOrDefault(ticker,0.);
+                totalShareInRubles += ShareOfCountryInAssetMatrix.getShare(country, ticker) *
+                        portfolioMap.getOrDefault(ticker, 0.);
             for (var ticker : VTBTicker.values())
-                totalShareInRubles += ShareOfCountryInAssetMatrix.getShare(country,ticker) *
-                                      portfolioMap.getOrDefault(ticker,0.);
+                totalShareInRubles += ShareOfCountryInAssetMatrix.getShare(country, ticker) *
+                        portfolioMap.getOrDefault(ticker, 0.);
             if (totalShareInRubles < 0.01) continue;
-            diversificationMap.put(country,totalShareInRubles);
+            diversificationMap.put(country, totalShareInRubles);
         }
 //        var sortedDiversificationMap = diversificationMap.entrySet().stream().
 //                                           sorted(Map.Entry.<Country,Double>comparingByValue().reversed()).
@@ -60,7 +60,7 @@ public class Main {
 
         System.out.println();
         System.out.println("Diversification you have:");
-        for (Map.Entry<Country,Double> entry : diversificationMap.entrySet())
+        for (Map.Entry<Country, Double> entry : diversificationMap.entrySet())
             System.out.printf("%-15s %13.2f ₽ (%6.2f %%)\n", entry.getKey() + ":", entry.getValue(),
                                                              entry.getValue() / portfolioSum * 100);
     }
