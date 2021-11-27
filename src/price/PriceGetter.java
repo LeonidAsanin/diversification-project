@@ -100,8 +100,8 @@ public class PriceGetter {
 
             String infoString;
 
-            /* marker substring for search required string with price data */
-            String requiredString = "Расчетная стоимость пая, рублей";
+            String requiredString = "Расчетная стоимость пая, рублей"; /* marker substring for search
+                                                                          required string with price data */
             var stringFoundMarker = false;
             while ((infoString = bufferedReader.readLine()) != null) {
                 if (infoString.contains(requiredString)) {

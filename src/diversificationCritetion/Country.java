@@ -1,4 +1,4 @@
-package diversificationCriterion;
+package diversificationCritetion;
 
 public enum Country {
     Australia(0, true), Belgium(1, true),

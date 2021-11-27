@@ -3,17 +3,21 @@ package database;
 import assets.FinExTicker;
 import assets.Ticker;
 import assets.VTBTicker;
-import diversificationCriterion.Country;
+import diversificationCritetion.Country;
 
 import java.util.*;
 
-public class ShareOfCountryInAssetMatrix {
+/**
+ * This class represents relational database that contains "Ticker" objects as rows and "Country" objects as columns
+ * The intersection of a row and a column is a share of the specific country in the specific asset
+ */
+public class CountryShares {
     private static final Map<Ticker, Double[]> coefficientMap = new HashMap<>();
 
-    private ShareOfCountryInAssetMatrix() {
+    private CountryShares() {
     }
 
-    public static double getShare(Country country, Ticker ticker) {
+    public static double get(Country country, Ticker ticker) {
         return coefficientMap.get(ticker)[country.getIndex()];
     }
 

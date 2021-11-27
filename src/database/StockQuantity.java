@@ -5,10 +5,10 @@ import assets.Ticker;
 import java.util.HashMap;
 import java.util.Map;
 
-public class QuantityOfShares {
+public class StockQuantity {
     private static final Map<Ticker, Integer> quantityMap = new HashMap<>();
 
-    private QuantityOfShares() {
+    private StockQuantity() {
     }
 
     public static void put(Ticker ticker, Integer quantity) {

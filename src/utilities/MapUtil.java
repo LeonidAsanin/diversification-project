@@ -11,9 +11,8 @@ public class MapUtil {
 
         mapEntries.sort(Map.Entry.<K, V>comparingByValue().reversed());
 
-        for (Map.Entry<K, V> entry : mapEntries) {
+        for (Map.Entry<K, V> entry : mapEntries)
             sortedMap.put(entry.getKey(), entry.getValue());
-        }
 
         return sortedMap;
     }

@@ -8,10 +8,10 @@ import price.PriceGetter;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SharePrices {
+public class StockPrices {
     private static final Map<Ticker, Double> priceMap = new HashMap<>();
 
-    private SharePrices() {
+    private StockPrices() {
     }
 
     public static void update(Ticker ticker) {
