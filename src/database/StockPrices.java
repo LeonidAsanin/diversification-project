@@ -9,14 +9,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class StockPrices {
-    private static final Map<Ticker, Double> PRICE_MAP = new HashMap<>();
+    private static final Map<Ticker, Double> MAP = new HashMap<>();
 
     private StockPrices() {
     }
 
     public static void update(Ticker ticker) {
         try {
-            PRICE_MAP.put(ticker, PriceGetter.get(ticker));
+            MAP.put(ticker, PriceGetter.get(ticker));
         } catch (NumberFormatException e) {
             System.out.println("Cannot get " + ticker + " price");
         }
@@ -35,8 +35,8 @@ public class StockPrices {
     }
 
     public static double get(Ticker ticker) {
-        if (!PRICE_MAP.containsKey(ticker))
+        if (!MAP.containsKey(ticker))
             update(ticker);
-        return PRICE_MAP.get(ticker);
+        return MAP.get(ticker);
     }
 }
