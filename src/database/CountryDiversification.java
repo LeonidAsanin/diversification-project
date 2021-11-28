@@ -39,8 +39,8 @@ public class CountryDiversification {
     private static void sort() {
         map = MapUtil.sortByValue(map);
 
-//        map = map.entrySet().stream().sorted(Map.Entry.<Country,Double>comparingByValue().reversed()).
-//                                           collect(Collectors.toMap(Map.Entry::getKey,Map.Entry::getValue,
+//        map = map.entrySet().stream().sorted(Map.Entry.<Country, Double>comparingByValue().reversed()).
+//                                           collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue,
 //                                                   (e1,e2) -> e1, LinkedHashMap::new));
     }
 
