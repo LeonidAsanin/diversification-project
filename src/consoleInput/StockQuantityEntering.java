@@ -21,9 +21,13 @@ public class StockQuantityEntering {
             String inputLine = scanner.nextLine();
             try {
                 quantity = Integer.parseInt(inputLine);
-                correctInput = true;
+                if (quantity < 0) {
+                    System.out.print("Please, enter a positive number: ");
+                } else {
+                    correctInput = true;
+                }
             } catch (NumberFormatException e) {
-                System.out.print("Please, enter an integer number: ");
+                System.out.print("Please, enter a proper integer number: ");
             }
         }
 
