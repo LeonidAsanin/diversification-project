@@ -85,7 +85,7 @@ public class PriceGetter {
 
         try {
             var url = new URL("https://www.vtbcapital-am.ru/products/bpif/" +
-                    ticker.getFundOfficialSitePage() + "/investment_strategy/");
+                              ticker.getFundOfficialSitePage() + "/investment_strategy/");
             urlConnection = url.openConnection();
         } catch (MalformedURLException e) {
             System.out.println("Error in the URL address");

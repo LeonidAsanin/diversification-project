@@ -22,11 +22,16 @@ public class StockPrices {
         }
     }
 
+    /* Works as a separate thread */
     public static void updateAll() {
-        for (var ticker : FinExTicker.values())
-            update(ticker);
-        for (var ticker : VTBTicker.values())
-            update(ticker);
+        var priceInitializingThread = new Thread(() -> {
+            for (var ticker : FinExTicker.values())
+                update(ticker);
+            for (var ticker : VTBTicker.values())
+                update(ticker);
+        });
+        priceInitializingThread.setDaemon(true);
+        priceInitializingThread.start();
     }
 
     public static double get(Ticker ticker) {
