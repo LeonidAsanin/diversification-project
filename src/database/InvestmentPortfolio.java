@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class InvestmentPortfolio {
-    private static final Map<Ticker, Double> map = new HashMap<>();
+    private static final Map<Ticker, Double> PORTFOLIO_MAP = new HashMap<>();
     private static double sum = 0;
     private static volatile boolean calculationCompleted = false;
 
@@ -32,23 +32,25 @@ public class InvestmentPortfolio {
 
     private static void calculateInvestmentPortfolio() {
         for (var ticker : FinExTicker.values()) {
-            var totalPriceOfAsset = calculateTotalPriceByTicker(ticker);
-            sum += totalPriceOfAsset;
-            map.put(ticker, totalPriceOfAsset);
+            var assetTotalPrice = calculateTotalPriceByTicker(ticker);
+            sum += assetTotalPrice;
+            PORTFOLIO_MAP.put(ticker, assetTotalPrice);
         }
         for (var ticker : VTBTicker.values()) {
-            var totalPriceOfAsset = calculateTotalPriceByTicker(ticker);
-            sum += totalPriceOfAsset;
-            map.put(ticker, totalPriceOfAsset);
+            var assetTotalPrice = calculateTotalPriceByTicker(ticker);
+            sum += assetTotalPrice;
+            PORTFOLIO_MAP.put(ticker, assetTotalPrice);
         }
         calculationCompleted = true;
     }
 
+    /* Waits for calculateInvestmentPortfolio() method to complete */
     public static double getTotalPriceByTicker(Ticker ticker) {
         while (!calculationCompleted) Thread.onSpinWait();
-        return map.getOrDefault(ticker, 0.);
+        return PORTFOLIO_MAP.getOrDefault(ticker, 0.);
     }
 
+    /* Waits for calculateInvestmentPortfolio() method to complete */
     public static double getSum() {
         while (!calculationCompleted) Thread.onSpinWait();
         return sum;
