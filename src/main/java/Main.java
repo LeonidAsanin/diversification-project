@@ -1,5 +1,3 @@
-package main;
-
 import database.InvestmentPortfolio;
 import consoleInput.StockQuantityEntering;
 import database.CountryDiversification;
