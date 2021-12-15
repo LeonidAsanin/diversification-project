@@ -45,7 +45,7 @@ public class PriceGetter {
             String infoString;
 
             /* marker substring for search required string with price data */
-            String requiredString = "data-testid=\"singleStockPrice\" class=\"css-10tevzg-FundTableDescription e1hxtrkz5\">";
+            String requiredString = "data-testid=\"singleStockPrice\">";
 
             while ((infoString = bufferedReader.readLine()) != null) {
                 if (infoString.contains(requiredString)) {

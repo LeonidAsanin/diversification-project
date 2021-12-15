@@ -19,6 +19,8 @@ public class StockPrices {
             MAP.put(ticker, PriceGetter.get(ticker));
         } catch (NumberFormatException e) {
             System.out.println("Cannot get " + ticker + " price");
+            e.printStackTrace();
+            System.exit(1);
         }
     }
 
