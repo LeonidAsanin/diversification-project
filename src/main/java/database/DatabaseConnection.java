@@ -16,9 +16,10 @@ public class DatabaseConnection {
 
     public void connect(String url, String user, String password) throws SQLException {
         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
             statement = connection.createStatement();
-        } catch (SQLException e) {
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
             throw new SQLException("Can't connect");
         }
