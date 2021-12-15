@@ -5,6 +5,7 @@ import assets.Ticker;
 import assets.VTBTicker;
 import diversificationCritetion.Country;
 
+import java.sql.SQLException;
 import java.util.*;
 
 /**
@@ -18,9 +19,22 @@ public class CountryShares {
     }
 
     public static double get(Country country, Ticker ticker) {
+        try {
+            var databaseConnection = DatabaseConnection.getInstance();
+            databaseConnection.connect("jdbc:mysql://localhost:3306/diversification_database",
+                    "root","asd123LOLsql");
+            var value = databaseConnection
+                    .getDouble("country_shares", country.toString(), "Ticker = '" + ticker + "'");
+            databaseConnection.disconnect();
+            return value;
+        } catch (SQLException e) {
+            System.out.println("Cannot get information from the remote database");
+            e.printStackTrace();
+        }
         return COEFFICIENT_MAP.get(ticker)[country.getIndex()];
     }
 
+    /* Default values for database*/
     static {
         var arraySize = Country.values().length;
         var coefficientArray = new Double[arraySize];
