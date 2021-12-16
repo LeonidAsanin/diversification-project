@@ -15,14 +15,25 @@ public class DatabaseConnection {
     }
 
     public void connect(String url, String user, String password) throws SQLException {
+        if (connection != null) {
+            try {
+                disconnect();
+            } catch (SQLException e) {
+                throw new SQLException("Can't disconnect");
+            }
+        }
+
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
             statement = connection.createStatement();
-        } catch (SQLException | ClassNotFoundException e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
             throw new SQLException("Can't connect");
         }
+    }
+
+    private void disconnect() throws SQLException {
+        statement.close();
+        connection.close();
     }
 
     public double getDouble(String table, String column, String findingCondition) throws SQLException {
@@ -32,22 +43,7 @@ public class DatabaseConnection {
             resultSet.next();
             return resultSet.getDouble(column);
         } catch (SQLException e) {
-            System.out.println("Unable to get value from database");
-            throw e;
-        }
-    }
-
-    public void disconnect() {
-        try {
-            statement.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
+            throw new SQLException("Unable to get value from database");
         }
     }
 }

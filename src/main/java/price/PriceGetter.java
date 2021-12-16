@@ -32,10 +32,12 @@ public class PriceGetter {
             var url = new URL("https://finex-etf.ru/products/" + ticker);
             urlConnection = url.openConnection();
         } catch (MalformedURLException e) {
-            System.out.println("Error in the URL address");
+            System.err.println("Error in the URL address");
+            e.printStackTrace();
             return 0;
         } catch (IOException e) {
-            System.out.println("Error of Input/Output");
+            System.err.println("Error of Input/Output");
+            e.printStackTrace();
             return 0;
         }
 
@@ -73,7 +75,8 @@ public class PriceGetter {
                 }
             }
         } catch (IOException e) {
-            System.out.println("IOException from BufferedReader");
+            System.err.println("IOException from BufferedReader");
+            e.printStackTrace();
         }
 
         return thousands * 1000 + Double.parseDouble(currentPrice);
@@ -88,10 +91,12 @@ public class PriceGetter {
                               ticker.getFundOfficialSitePage() + "/investment_strategy/");
             urlConnection = url.openConnection();
         } catch (MalformedURLException e) {
-            System.out.println("Error in the URL address");
+            System.err.println("Error in the URL address");
+            e.printStackTrace();
             return 0;
         } catch (IOException e) {
-            System.out.println("Error of Input/Output");
+            System.err.println("Error of Input/Output");
+            e.printStackTrace();
             return 0;
         }
 
@@ -121,7 +126,8 @@ public class PriceGetter {
                 }
             }
         } catch (IOException e) {
-            System.out.println("IOException from BufferedReader");
+            System.err.println("IOException from BufferedReader");
+            e.printStackTrace();
         }
 
         return Double.parseDouble(currentPrice);
