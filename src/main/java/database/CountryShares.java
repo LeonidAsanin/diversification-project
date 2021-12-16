@@ -9,8 +9,17 @@ import java.sql.SQLException;
 import java.util.*;
 
 /**
- * This class represents relational database that contains "Ticker" objects as rows and "Country" objects as columns
- * The intersection of a row and a column is a share of the specific country in the specific asset
+ * This class trying to connect to remote database to obtain information about shares of countries in the specific
+ * asset from the table that contains "Ticker" as first column and different countries as the other columns.
+ *
+ * Example of table:
+ *  | Ticker | Australia | Belgium | ...
+ *  |--------|-----------|---------|
+ *  | FXDM   | 0.0780    | 0.0040  | ...
+ *  | FXRW   | 0.0550    | 0.0000  | ...
+ *  ...
+ *
+ * If connection has not been established or another exception occurred then default values are used.
  */
 public class CountryShares {
     private static final Map<Ticker, Double[]> COEFFICIENT_MAP = new HashMap<>();
@@ -23,12 +32,10 @@ public class CountryShares {
             var databaseConnection = DatabaseConnection.getInstance();
             databaseConnection.connect("jdbc:mysql://localhost:3306/diversification_database",
                     "root","asd123LOLsql");
-            var value = databaseConnection
+            return databaseConnection
                     .getDouble("country_shares", country.toString(), "Ticker = '" + ticker + "'");
-            databaseConnection.disconnect();
-            return value;
         } catch (SQLException e) {
-            System.out.println("Cannot get information from the remote database");
+            System.err.println("Cannot get information from the remote database");
             e.printStackTrace();
         }
         return COEFFICIENT_MAP.get(ticker)[country.getIndex()];
