@@ -54,7 +54,7 @@ public class CountryShares {
                 } catch (IllegalArgumentException ignored) {}
             }
         } catch (SQLException e) {
-            System.err.println("\nCannot get actual information about country shares: DEFAULT VALUES WERE USED");
+            System.out.println("\nCannot get actual information about country shares: DEFAULT VALUES WERE USED");
         }
     }
 
@@ -250,6 +250,5 @@ public class CountryShares {
 
         /* Overriding default values */
         getAllValuesFromDatabase();
-        System.out.println();
     }
 }
