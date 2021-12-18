@@ -19,7 +19,12 @@ public class DatabaseConnectionTest {
     }
 
     @Test
-    public void getAllDoubleValuesFromDatabase() throws SQLException {
+    public void shouldGetResultSetFromDatabase() throws SQLException {
+        databaseConnection.getResultSetFromTable("country_shares");
+    }
+
+    @Test
+    public void shouldGetAllDoubleValuesFromDatabase() throws SQLException {
         for (var country : Country.values()) {
             for (var ticker : FinExTicker.values()) {
                 databaseConnection.getDouble("country_shares", country.toString(),

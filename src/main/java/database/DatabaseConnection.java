@@ -8,7 +8,8 @@ public class DatabaseConnection {
     private Connection connection;
     private Statement statement;
 
-    private DatabaseConnection() {}
+    private DatabaseConnection() {
+    }
 
     public static DatabaseConnection getInstance() {
         return Objects.requireNonNullElseGet(databaseConnection, () -> databaseConnection = new DatabaseConnection());
@@ -44,6 +45,14 @@ public class DatabaseConnection {
             return resultSet.getDouble(column);
         } catch (SQLException e) {
             throw new SQLException("Unable to get value from database");
+        }
+    }
+
+    public ResultSet getResultSetFromTable(String table) throws SQLException {
+        try {
+            return statement.executeQuery("SELECT * FROM " + table + ";");
+        } catch (SQLException e) {
+            throw new SQLException("Unable to get values from database");
         }
     }
 }
