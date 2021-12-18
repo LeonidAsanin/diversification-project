@@ -39,9 +39,9 @@ public class CountryShares {
             var resultSet = databaseConnection.getResultSetFromTable("country_shares");
 
             var arraySize = Country.values().length;
-            var coefficientArray = new Double[arraySize];
 
             for (var ticker : FinExTicker.values()) {
+                var coefficientArray = new Double[arraySize];
                 Arrays.fill(coefficientArray, 0.);
                 resultSet.next();
                 for (var country : Country.values()) {
@@ -50,6 +50,7 @@ public class CountryShares {
                 COEFFICIENT_MAP.put(ticker, coefficientArray);
             }
             for (var ticker : VTBTicker.values()) {
+                var coefficientArray = new Double[arraySize];
                 Arrays.fill(coefficientArray, 0.);
                 resultSet.next();
                 for (var country : Country.values()) {
