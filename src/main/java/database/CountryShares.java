@@ -28,21 +28,43 @@ public class CountryShares {
     }
 
     public static double get(Country country, Ticker ticker) {
-        try {
-            var databaseConnection = DatabaseConnection.getInstance();
-            databaseConnection.connect("jdbc:mysql://localhost:3306/diversification_database",
-                    "root","asd123LOLsql");
-            return databaseConnection
-                    .getDouble("country_shares", country.toString(), "Ticker = '" + ticker + "'");
-        } catch (SQLException e) {
-            System.err.println("Cannot get information from the remote database");
-            e.printStackTrace();
-        }
         return COEFFICIENT_MAP.get(ticker)[country.getIndex()];
     }
 
-    /* Default values for database*/
+    private static void getAllValuesFromDatabase() {
+        var databaseConnection = DatabaseConnection.getInstance();
+        try {
+            databaseConnection.connect("jdbc:mysql://localhost:3306/diversification_database",
+                    "root","asd123LOLsql");
+            var resultSet = databaseConnection.getResultSetFromTable("country_shares");
+
+            var arraySize = Country.values().length;
+            var coefficientArray = new Double[arraySize];
+
+            for (var ticker : FinExTicker.values()) {
+                Arrays.fill(coefficientArray, 0.);
+                resultSet.next();
+                for (var country : Country.values()) {
+                    coefficientArray[country.getIndex()] = resultSet.getDouble(country.toString());
+                }
+                COEFFICIENT_MAP.put(ticker, coefficientArray);
+            }
+            for (var ticker : VTBTicker.values()) {
+                Arrays.fill(coefficientArray, 0.);
+                resultSet.next();
+                for (var country : Country.values()) {
+                    coefficientArray[country.getIndex()] = resultSet.getDouble(country.toString());
+                }
+                COEFFICIENT_MAP.put(ticker, coefficientArray);
+            }
+        } catch (SQLException e) {
+            System.err.println("\nCannot get actual information about country shares: DEFAULT VALUES WERE USED");
+        }
+    }
+
+    /* Defining values for COEFFICIENT_MAP */
     static {
+        /* Default values */
         var arraySize = Country.values().length;
         var coefficientArray = new Double[arraySize];
         Arrays.fill(coefficientArray, 0.);
@@ -229,5 +251,8 @@ public class CountryShares {
         Arrays.fill(coefficientArray, 0.);
         coefficientArray[Country.Russia.getIndex()] = 1.;
         COEFFICIENT_MAP.put(VTBTicker.VTBX, coefficientArray);
+
+        /* Overriding default values */
+        getAllValuesFromDatabase();
     }
 }
