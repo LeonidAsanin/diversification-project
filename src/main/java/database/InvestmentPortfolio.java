@@ -57,8 +57,8 @@ public class InvestmentPortfolio {
     }
 
     public static void showTotalPriceByTicker(Ticker ticker) {
-        System.out.printf("%s: %12.2f ₽/share\t", ticker, StockPrices.get(ticker));
-        System.out.printf("%12.2f ₽\n", calculateTotalPriceByTicker(ticker));
+        System.out.printf("%s: %12.2f ₽/share", ticker, StockPrices.get(ticker));
+        System.out.printf("%14.2f ₽\n", calculateTotalPriceByTicker(ticker));
     }
 
     public static void show() {
@@ -70,7 +70,7 @@ public class InvestmentPortfolio {
             if (StockQuantity.get(ticker) > 0) showTotalPriceByTicker(ticker);
 
         System.out.println("------------------------------------------");
-        System.out.print("Sum of all assets:\t\t");
-        System.out.printf("%16.2f ₽\n", getSum());// getSum() returns value after calculation completion
+        System.out.print("Sum of all assets:");
+        System.out.printf("%22.2f ₽\n", getSum());// getSum() returns value after calculation completion
     }
 }

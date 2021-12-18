@@ -40,23 +40,18 @@ public class CountryShares {
 
             var arraySize = Country.values().length;
 
-            for (var ticker : FinExTicker.values()) {
+            while (resultSet.next()) {
                 var coefficientArray = new Double[arraySize];
                 Arrays.fill(coefficientArray, 0.);
-                resultSet.next();
                 for (var country : Country.values()) {
                     coefficientArray[country.getIndex()] = resultSet.getDouble(country.toString());
                 }
-                COEFFICIENT_MAP.put(ticker, coefficientArray);
-            }
-            for (var ticker : VTBTicker.values()) {
-                var coefficientArray = new Double[arraySize];
-                Arrays.fill(coefficientArray, 0.);
-                resultSet.next();
-                for (var country : Country.values()) {
-                    coefficientArray[country.getIndex()] = resultSet.getDouble(country.toString());
-                }
-                COEFFICIENT_MAP.put(ticker, coefficientArray);
+                try {
+                    COEFFICIENT_MAP.put(FinExTicker.valueOf(resultSet.getString("Ticker")), coefficientArray);
+                } catch (IllegalArgumentException ignored) {}
+                try {
+                    COEFFICIENT_MAP.put(VTBTicker.valueOf(resultSet.getString("Ticker")), coefficientArray);
+                } catch (IllegalArgumentException ignored) {}
             }
         } catch (SQLException e) {
             System.err.println("\nCannot get actual information about country shares: DEFAULT VALUES WERE USED");
@@ -255,5 +250,6 @@ public class CountryShares {
 
         /* Overriding default values */
         getAllValuesFromDatabase();
+        System.out.println();
     }
 }
