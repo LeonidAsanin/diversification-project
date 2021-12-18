@@ -10,7 +10,7 @@ public class DatabaseConnection {
 
     private DatabaseConnection() {}
 
-    public static DatabaseConnection getInstance() throws SQLException {
+    public static DatabaseConnection getInstance() {
         return Objects.requireNonNullElseGet(databaseConnection, () -> databaseConnection = new DatabaseConnection());
     }
 
@@ -31,7 +31,7 @@ public class DatabaseConnection {
         }
     }
 
-    private void disconnect() throws SQLException {
+    public void disconnect() throws SQLException {
         statement.close();
         connection.close();
     }
