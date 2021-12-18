@@ -24,15 +24,26 @@ public class StockPrices {
     }
 
     /* Works as a separate thread */
-    public static void updateAll() {
+    public static Thread updateAll() {
         var priceInitializingThread = new Thread(() -> {
-            for (var ticker : FinExTicker.values())
-                update(ticker);
-            for (var ticker : VTBTicker.values())
-                update(ticker);
+            for (var ticker : FinExTicker.values()) {
+                if (!Thread.interrupted()) {
+                    update(ticker);
+                } else {
+                    return;
+                }
+            }
+            for (var ticker : VTBTicker.values()) {
+                if (!Thread.interrupted()) {
+                    update(ticker);
+                } else {
+                    return;
+                }
+            }
         });
         priceInitializingThread.setDaemon(true);
         priceInitializingThread.start();
+        return priceInitializingThread;
     }
 
     public static double get(Ticker ticker) {
