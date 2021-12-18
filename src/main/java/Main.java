@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
 
         /* Gets thread that works concurrently while user enters data */
-        var priceInitializingThread = StockPrices.updateAll();
+        var priceInitializingThread = StockPrices.updateAllAsSeparateThread();
 
         /* Entering data by user */
         StockQuantityEntering.enterAll();

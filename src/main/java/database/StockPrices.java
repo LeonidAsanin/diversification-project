@@ -24,7 +24,7 @@ public class StockPrices {
     }
 
     /* Works as a separate thread */
-    public static Thread updateAll() {
+    public static Thread updateAllAsSeparateThread() {
         var priceInitializingThread = new Thread(() -> {
             for (var ticker : FinExTicker.values()) {
                 if (!Thread.interrupted()) {
