@@ -35,7 +35,7 @@ public class CountryShares {
         var databaseConnection = DatabaseConnection.getInstance();
         try {
             databaseConnection.connect("jdbc:mysql://localhost:3306/diversification_database",
-                    "root","asd123LOLsql");
+                    "user","password");
             var resultSet = databaseConnection.getResultSetFromTable("country_shares");
 
             var arraySize = Country.values().length;
