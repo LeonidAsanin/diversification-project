@@ -1,0 +1,24 @@
+
+// MySQL setting:
+export PATH=${PATH}:/usr/local/mysql/bin
+
+mysql -u root -p
+
+// Entering password
+asd123LOLsql
+
+CREATE DATABASE diversification_database;
+
+USE diversification_database;
+
+
+CREATE USER 'user'@'%' IDENTIFIED BY 'password';
+GRANT SELECT ON *.* TO 'user'@'%';
+FLUSH PRIVILEGES;
+
+
+// Additional commands
+DESCRIBE mysql.user;
+SELECT host, user, grant_priv, select_priv  FROM mysql.user;
+SHOW GRANTS FOR 'user'@'%';
+DROP USER user;

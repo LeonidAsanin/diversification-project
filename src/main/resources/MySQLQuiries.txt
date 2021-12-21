@@ -1,0 +1,110 @@
+CREATE TABLE country_shares (
+    Ticker VARCHAR(4) PRIMARY KEY,
+    Australia DECIMAL(5,4) DEFAULT 0,
+    Belgium DECIMAL(5,4) DEFAULT 0,
+    Brazil DECIMAL(5,4) DEFAULT 0,
+    Canada DECIMAL(5,4) DEFAULT 0,
+    China DECIMAL(5,4) DEFAULT 0,
+    Denmark DECIMAL(5,4) DEFAULT 0,
+    Finland DECIMAL(5,4) DEFAULT 0,
+    France DECIMAL(5,4) DEFAULT 0,
+    Germany DECIMAL(5,4) DEFAULT 0,
+    Great_Britain DECIMAL(5,4) DEFAULT 0,
+    Hong_Kong DECIMAL(5,4) DEFAULT 0,
+    India DECIMAL(5,4) DEFAULT 0,
+    Indonesia DECIMAL(5,4) DEFAULT 0,
+    Ireland DECIMAL(5,4) DEFAULT 0,
+    Italy DECIMAL(5,4) DEFAULT 0,
+    Japan DECIMAL(5,4) DEFAULT 0,
+    Kazakhstan DECIMAL(5,4) DEFAULT 0,
+    Luxembourg DECIMAL(5,4) DEFAULT 0,
+    Malaysia DECIMAL(5,4) DEFAULT 0,
+    Mexico DECIMAL(5,4) DEFAULT 0,
+    Netherlands DECIMAL(5,4) DEFAULT 0,
+    Poland DECIMAL(5,4) DEFAULT 0,
+    Russia DECIMAL(5,4) DEFAULT 0,
+    Saudi_Arabia DECIMAL(5,4) DEFAULT 0,
+    Singapore DECIMAL(5,4) DEFAULT 0,
+    South_Africa DECIMAL(5,4) DEFAULT 0,
+    South_Korea DECIMAL(5,4) DEFAULT 0,
+    Spain DECIMAL(5,4) DEFAULT 0,
+    Sweden DECIMAL(5,4) DEFAULT 0,
+    Switzerland DECIMAL(5,4) DEFAULT 0,
+    Taiwan DECIMAL(5,4) DEFAULT 0,
+    Thailand DECIMAL(5,4) DEFAULT 0,
+    USA DECIMAL(5,4) DEFAULT 0
+);
+
+INSERT INTO country_shares(Ticker, China) VALUES('FXCN', 1);
+
+INSERT INTO country_shares(Ticker, Germany) VALUES('FXDE', 1);
+
+INSERT INTO country_shares(Ticker,
+    Japan, France, Great_Britain, Canada, Switzerland, Germany,
+    Australia, Netherlands, Denmark, Spain, Hong_Kong, Sweden,
+    Italy, Finland, Singapore, Ireland, Belgium
+) VALUES(
+    'FXDM',
+    .1755, .1175, .1165, .1165, .112, .086,
+    .078, .076, .024, .023, .017, .017,
+    .012, .01, .009, .006, .004
+);
+
+INSERT INTO country_shares(Ticker, USA, Japan, China, Taiwan, South_Korea, Sweden, France, Poland)
+VALUES('FXES', .457, .181, .18, .077, .047, .024, .021, .013);
+
+INSERT INTO country_shares(Ticker, USA, Luxembourg) VALUES('FXFA', .957, .043);
+
+INSERT INTO country_shares(Ticker) VALUES('FXGD');
+
+INSERT INTO country_shares(Ticker, USA) VALUES('FXIM', 1);
+
+INSERT INTO country_shares(Ticker, USA) VALUES('FXIP', 1);
+
+INSERT INTO country_shares(Ticker, USA) VALUES('FXIT', 1);
+
+INSERT INTO country_shares(Ticker, Kazakhstan) VALUES('FXKZ', 1);
+
+INSERT INTO country_shares(Ticker, USA) VALUES('FXMM', 1);
+
+INSERT INTO country_shares(Ticker, Russia) VALUES('FXRB', 1);
+
+INSERT INTO country_shares(Ticker, USA, Luxembourg) VALUES('FXRD', .957, .043);
+
+INSERT INTO country_shares(Ticker, Russia) VALUES('FXRL', 1);
+
+INSERT INTO country_shares(Ticker, Russia) VALUES('FXRU', 1);
+
+INSERT INTO country_shares(Ticker, USA, Japan, China, Great_Britain, Germany, Australia, Russia)
+VALUES('FXRW', .4, .2, .115, .113, .086, .055, .031);
+
+INSERT INTO country_shares(Ticker, USA) VALUES('FXTB', 1);
+
+INSERT INTO country_shares(Ticker, USA) VALUES('FXTP', 1);
+
+INSERT INTO country_shares(Ticker, USA) VALUES('FXUS', 1);
+
+INSERT INTO country_shares(Ticker, USA, Japan, China, Great_Britain, Germany, Australia, Russia)
+VALUES('FXWO', .4, .2, .115, .113, .086, .055, .031);
+
+INSERT INTO country_shares(Ticker, USA) VALUES('VTBA', 1);
+
+INSERT INTO country_shares(Ticker, Russia) VALUES('VTBB', 1);
+
+INSERT INTO country_shares(Ticker,
+    China, Taiwan, India, South_Korea, Brazil, Russia, South_Africa,
+    Saudi_Arabia, Thailand, Mexico, Malaysia, Indonesia)
+VALUES('VTBE',
+    .3101, .1616, .1318, .1257, .0369, .0344, .0317,
+    .0293, .0192, .0181, .015, .0145
+);
+
+INSERT INTO country_shares(Ticker) VALUES('VTBG');
+
+INSERT INTO country_shares(Ticker, USA) VALUES('VTBH', 1);
+
+INSERT INTO country_shares(Ticker, Russia) VALUES('VTBM', 1);
+
+INSERT INTO country_shares(Ticker, Russia) VALUES('VTBU', 1);
+
+INSERT INTO country_shares(Ticker, Russia) VALUES('VTBX', 1);
