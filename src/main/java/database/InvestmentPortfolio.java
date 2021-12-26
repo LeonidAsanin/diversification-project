@@ -7,6 +7,13 @@ import assets.VTBTicker;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Class that is supposed to calculate and show user's investment portfolio
+ *
+ * @author lennardjones
+ * @version 1.1
+ * @since 1.0
+ */
 public class InvestmentPortfolio {
     private static final Map<Ticker, Double> STOCKS_MAP = new HashMap<>();
     private static double sum = 0;
@@ -61,6 +68,10 @@ public class InvestmentPortfolio {
         System.out.printf("%14.2f ₽\n", calculateTotalPriceByTicker(ticker));
     }
 
+    /**
+     * Shows user's investment portfolio (including only FinEx and VTB funds) that is quantity and
+     * total price of the specific asset and the sum of all assets in the end.
+     */
     public static void show() {
         System.out.println("\nYour investment portfolio: ");
 

@@ -8,6 +8,14 @@ import price.PriceGetter;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Class that obtains and stores stock prices of FinEx and VTB funds,
+ * also includes {@link StockPrices#get(Ticker)} method to retrieve the price by ticker.
+ *
+ * @author lennardjones
+ * @version 1.1
+ * @since 1.0
+ */
 public class StockPrices {
     private static final Map<Ticker, Double> MAP = new HashMap<>();
 

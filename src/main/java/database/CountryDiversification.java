@@ -9,6 +9,13 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * Class that is supposed to calculate and show country diversification in descending order.
+ *
+ * @author lennardjones
+ * @version 1.1
+ * @since 1.0
+ */
 public class CountryDiversification {
     private static Map<Country, Double> map = new HashMap<>();
 

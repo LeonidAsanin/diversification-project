@@ -1,5 +1,12 @@
 package diversificationCritetion;
 
+/**
+ * Enumeration of all countries whose company's stocks are present in different funds.
+ *
+ * @author lennardjones
+ * @version 1.1
+ * @since 1.0
+ */
 public enum Country {
     Australia(0, true), Belgium(1, true),
     Brazil(2, false), Canada(3, true),
