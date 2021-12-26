@@ -1,6 +1,6 @@
 import assets.FinExTicker;
 import assets.VTBTicker;
-import consoleInput.StockQuantityEntering;
+import dataEntering.StockQuantityEntering;
 import org.junit.Assert;
 import org.junit.Test;
 

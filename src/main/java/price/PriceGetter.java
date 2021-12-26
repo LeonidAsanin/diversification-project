@@ -11,6 +11,16 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 
+/**
+ * Class for obtaining price information about FinEx and VTB funds.
+ * Static getters of this class are based on obtaining data from
+ * https://finex-etf.ru/ and https://www.vtbcapital-am.ru/ sites.
+ * Thus, when the site structure is changed, then respective getter should be updated.
+ *
+ * @author lennardjones
+ * @version 1.1
+ * @since 1.0
+ */
 public class PriceGetter {
     private PriceGetter() {
     }

@@ -1,7 +1,7 @@
-import database.InvestmentPortfolio;
-import consoleInput.StockQuantityEntering;
-import database.CountryDiversification;
 import database.StockPrices;
+import database.InvestmentPortfolio;
+import database.CountryDiversification;
+import dataEntering.StockQuantityEntering;
 
 public class Main {
     public static void main(String[] args) {

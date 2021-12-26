@@ -9,17 +9,37 @@ import java.sql.SQLException;
 import java.util.*;
 
 /**
- * This class trying to connect to remote database to obtain information about shares of countries in the specific
- * asset from the table that contains "Ticker" as first column and different countries as the other columns.
+ * This class is trying to connect to remote database to obtain information about shares of countries in the specific
+ * asset from the table that contains "Ticker" as first column and different countries as the other columns. <br><br>
  *
- * Example of table:
- *  | Ticker | Australia | Belgium | ...
- *  |--------|-----------|---------|
- *  | FXDM   | 0.0780    | 0.0040  | ...
- *  | FXRW   | 0.0550    | 0.0000  | ...
- *  ...
+ * Example of table:<br>
+ * <table>
+ *     <tr>
+ *         <td>Ticker</td>
+ *         <td>Australia</td>
+ *         <td>Belgium</td>
+ *         <td>...</td>
+ *     </tr>
+ *     <tr>
+ *         <td>FXDM</td>
+ *         <td>0.0780</td>
+ *         <td>0.0040</td>
+ *         <td>...</td>
+ *     </tr>
+ *     <tr>
+ *         <td>FXRW</td>
+ *         <td>0.0550</td>
+ *         <td>0.0000</td>
+ *         <td>...</td>
+ *     </tr>
+ * </table>
+ *  ... <br><br>
  *
  * If connection has not been established or another exception occurred then default values are used.
+ *
+ * @author lennardjones
+ * @version 1.1
+ * @since 1.0
  */
 public class CountryShares {
     private static final Map<Ticker, Double[]> COEFFICIENT_MAP = new HashMap<>();

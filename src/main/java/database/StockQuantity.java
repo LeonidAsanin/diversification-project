@@ -5,6 +5,13 @@ import assets.Ticker;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Class that stores information about user's each stock quantity.
+ *
+ * @author lennardjones
+ * @version 1.1
+ * @since 1.0
+ */
 public class StockQuantity {
     private static final Map<Ticker, Integer> MAP = new HashMap<>();
 

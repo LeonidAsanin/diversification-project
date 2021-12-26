@@ -3,6 +3,13 @@ package database;
 import java.sql.*;
 import java.util.Objects;
 
+/**
+ * Singleton class for connection to the remote database purposes.
+ *
+ * @author lennardjones
+ * @version 1.1
+ * @since 1.1
+ */
 public class DatabaseConnection {
     private static DatabaseConnection databaseConnection;
     private Connection connection;
