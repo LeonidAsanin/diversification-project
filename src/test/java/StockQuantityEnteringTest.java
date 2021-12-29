@@ -1,6 +1,7 @@
 import assets.FinExTicker;
 import assets.VTBTicker;
 import dataEntering.StockQuantityEntering;
+import database.StockQuantity;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -20,7 +21,7 @@ public class StockQuantityEnteringTest {
             try (var fileInputStream = new FileInputStream("src/test/resources/UnsuccessfulEnteringScenarios.txt")) {
                 tryCounter++;
                 var scanner = new Scanner(fileInputStream);
-                StockQuantityEntering.enter(ticker, scanner);
+                StockQuantityEntering.enter(ticker, scanner, new StockQuantity());
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (NoSuchElementException e) {
@@ -32,7 +33,7 @@ public class StockQuantityEnteringTest {
             try (var fileInputStream = new FileInputStream("src/test/resources/UnsuccessfulEnteringScenarios.txt")) {
                 tryCounter++;
                 var scanner = new Scanner(fileInputStream);
-                StockQuantityEntering.enter(ticker, scanner);
+                StockQuantityEntering.enter(ticker, scanner, new StockQuantity());
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (NoSuchElementException e) {

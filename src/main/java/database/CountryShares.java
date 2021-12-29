@@ -38,7 +38,7 @@ import java.util.*;
  * If connection has not been established or another exception occurred then default values are used.
  *
  * @author lennardjones
- * @version 1.1
+ * @version 1.2
  * @since 1.0
  */
 public class CountryShares {

@@ -18,7 +18,7 @@ import java.net.URLConnection;
  * Thus, when the site structure is changed, then respective getter should be updated.
  *
  * @author lennardjones
- * @version 1.1
+ * @version 1.2
  * @since 1.0
  */
 public class PriceGetter {

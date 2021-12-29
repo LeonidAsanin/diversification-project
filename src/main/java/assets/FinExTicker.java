@@ -4,7 +4,7 @@ package assets;
  * Enumeration of FinEx funds tickers.
  *
  * @author lennardjones
- * @version 1.1
+ * @version 1.2
  * @since 1.0
  */
 public enum FinExTicker implements Ticker {
