@@ -2,6 +2,7 @@ import assets.FinExTicker;
 import assets.VTBTicker;
 import database.CountryShares;
 import diversificationCritetion.Country;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class CountrySharesTest {
@@ -28,5 +29,10 @@ public class CountrySharesTest {
             }
             System.out.println();
         }
+    }
+
+    @Test
+    public void shouldGetAllValuesFromDatabase() {
+        Assert.assertTrue(CountryShares.getAllValuesFromDatabase());
     }
 }

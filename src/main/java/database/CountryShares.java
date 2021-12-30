@@ -51,7 +51,12 @@ public class CountryShares {
         return COEFFICIENT_MAP.get(ticker)[country.getIndex()];
     }
 
-    public static void getAllValuesFromDatabase() {
+    /**
+     * Gets information from MySQL database
+     *
+     * @return true if succeed and false otherwise
+     */
+    public static boolean getAllValuesFromDatabase() {
         var databaseConnection = DatabaseConnection.getInstance();
         try {
             databaseConnection.connect("jdbc:mysql://localhost:3306/diversification_database",
@@ -75,7 +80,9 @@ public class CountryShares {
             }
         } catch (SQLException e) {
             System.out.println("\nCannot get actual information about country shares: DEFAULT VALUES WERE USED");
+            return false;
         }
+        return true;
     }
 
     /* Defining values for COEFFICIENT_MAP */
@@ -267,8 +274,5 @@ public class CountryShares {
         Arrays.fill(coefficientArray, 0.);
         coefficientArray[Country.Russia.getIndex()] = 1.;
         COEFFICIENT_MAP.put(VTBTicker.VTBX, coefficientArray);
-
-        /* Overriding default values */
-        getAllValuesFromDatabase();
     }
 }

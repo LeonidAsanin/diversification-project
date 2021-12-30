@@ -32,6 +32,7 @@ public class CountryDiversification {
     }
 
     private void calculate() {
+        CountryShares.getAllValuesFromDatabase();
         for (var country : Country.values()) {
             var totalShareInRubles = 0.;
 
