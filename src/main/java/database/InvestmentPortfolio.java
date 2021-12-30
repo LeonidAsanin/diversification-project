@@ -11,33 +11,33 @@ import java.util.Map;
  * Class that is supposed to calculate and show user's investment portfolio
  *
  * @author lennardjones
- * @version 1.1
+ * @version 1.2
  * @since 1.0
  */
 public class InvestmentPortfolio {
-    private static final Map<Ticker, Double> STOCKS_MAP = new HashMap<>();
-    private static double sum = 0;
-    private static volatile boolean calculationCompleted = false;
+    private final Map<Ticker, Double> STOCKS_MAP = new HashMap<>();
+    private double sum = 0;
+    private volatile boolean calculationCompleted = false;
+    private final StockQuantity stockQuantity;
 
-    private InvestmentPortfolio() {
+    public InvestmentPortfolio(StockQuantity stockQuantity) {
+        this.stockQuantity = stockQuantity;
+
+        /*
+         * Thread to perform calculateInvestmentPortfolio() method separately
+         * in order to other calculations can be performed independently and concurrently.
+         */
+        new Thread(this::calculateInvestmentPortfolio).start();
     }
 
-    /*
-    * Initialization block to perform calculateInvestmentPortfolio() method as a separate thread
-    * in order to other calculations can be performed independently and concurrently.
-    */
-    static {
-        new Thread(InvestmentPortfolio::calculateInvestmentPortfolio).start();
-    }
-
-    private static double calculateTotalPriceByTicker(Ticker ticker) {
-        var quantity = StockQuantity.get(ticker);
+    private double calculateTotalPriceByTicker(Ticker ticker) {
+        var quantity = stockQuantity.get(ticker);
         if (quantity == 0) return 0;
 
         return quantity * StockPrices.get(ticker);
     }
 
-    private static void calculateInvestmentPortfolio() {
+    private void calculateInvestmentPortfolio() {
         for (var ticker : FinExTicker.values()) {
             var assetTotalPrice = calculateTotalPriceByTicker(ticker);
             sum += assetTotalPrice;
@@ -52,18 +52,18 @@ public class InvestmentPortfolio {
     }
 
     /* Waits for calculateInvestmentPortfolio() method to complete */
-    public static double getTotalPriceByTicker(Ticker ticker) {
+    public double getTotalPriceByTicker(Ticker ticker) {
         while (!calculationCompleted) Thread.onSpinWait();
         return STOCKS_MAP.getOrDefault(ticker, 0.);
     }
 
     /* Waits for calculateInvestmentPortfolio() method to complete */
-    public static double getSum() {
+    public double getSum() {
         while (!calculationCompleted) Thread.onSpinWait();
         return sum;
     }
 
-    public static void showTotalPriceByTicker(Ticker ticker) {
+    public void showTotalPriceByTicker(Ticker ticker) {
         System.out.printf("%s: %12.2f ₽/share", ticker, StockPrices.get(ticker));
         System.out.printf("%14.2f ₽\n", calculateTotalPriceByTicker(ticker));
     }
@@ -72,13 +72,13 @@ public class InvestmentPortfolio {
      * Shows user's investment portfolio (including only FinEx and VTB funds) that is quantity and
      * total price of the specific asset and the sum of all assets in the end.
      */
-    public static void show() {
+    public void show() {
         System.out.println("\nYour investment portfolio: ");
 
         for (var ticker : FinExTicker.values())
-            if (StockQuantity.get(ticker) > 0) showTotalPriceByTicker(ticker);
+            if (stockQuantity.get(ticker) > 0) showTotalPriceByTicker(ticker);
         for (var ticker : VTBTicker.values())
-            if (StockQuantity.get(ticker) > 0) showTotalPriceByTicker(ticker);
+            if (stockQuantity.get(ticker) > 0) showTotalPriceByTicker(ticker);
 
         System.out.println("------------------------------------------");
         System.out.print("Sum of all assets:");

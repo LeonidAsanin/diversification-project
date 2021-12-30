@@ -7,7 +7,7 @@ import java.util.Objects;
  * Singleton class for connection to the remote database purposes.
  *
  * @author lennardjones
- * @version 1.1
+ * @version 1.2
  * @since 1.1
  */
 public class DatabaseConnection {
@@ -32,8 +32,11 @@ public class DatabaseConnection {
         }
 
         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
             statement = connection.createStatement();
+        } catch (ClassNotFoundException e) {
+            throw new SQLException("Can't load Driver for MySQL");
         } catch (SQLException e) {
             throw new SQLException("Can't connect");
         }

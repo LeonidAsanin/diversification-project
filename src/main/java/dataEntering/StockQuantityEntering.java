@@ -12,7 +12,7 @@ import java.util.Scanner;
  * Class that provides functionality for entering of the user's stock quantities.
  *
  * @author lennardjones
- * @version 1.1
+ * @version 1.2
  * @since 1.0
  */
 public class StockQuantityEntering {
@@ -24,8 +24,9 @@ public class StockQuantityEntering {
      *
      * @param ticker Ticker of the specific asset
      * @param scanner Scanner to data entering
+     * @param stockQuantity Stocks quantity to put data in
      */
-    public static void enter(Ticker ticker, Scanner scanner) {
+    public static void enter(Ticker ticker, Scanner scanner, StockQuantity stockQuantity) {
         var quantity = 0;
         var correctInput = false;
 
@@ -45,19 +46,23 @@ public class StockQuantityEntering {
             }
         }
 
-        StockQuantity.put(ticker, quantity);
+        stockQuantity.put(ticker, quantity);
     }
 
     /**
      * Provides functionality for entering the quantities of all FinEx and VTB funds using console.
+     *
+     * @return StockQuantity object that represents quantity of stocks entered by user
      */
-    public static void enterAll() {
+    public static StockQuantity enterAll() {
+        var stockQuantity = new StockQuantity();
         System.out.println("\nEnter the number of shares you have:");
         var scanner = new Scanner(System.in);
         for (var ticker : FinExTicker.values())
-            enter(ticker, scanner);
+            enter(ticker, scanner, stockQuantity);
         for (var ticker : VTBTicker.values())
-            enter(ticker, scanner);
+            enter(ticker, scanner, stockQuantity);
         scanner.close();
+        return stockQuantity;
     }
 }

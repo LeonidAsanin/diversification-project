@@ -9,20 +9,20 @@ import java.util.Map;
  * Class that stores information about user's each stock quantity.
  *
  * @author lennardjones
- * @version 1.1
+ * @version 1.2
  * @since 1.0
  */
 public class StockQuantity {
-    private static final Map<Ticker, Integer> MAP = new HashMap<>();
+    private final Map<Ticker, Integer> MAP = new HashMap<>();
 
-    private StockQuantity() {
+    public StockQuantity() {
     }
 
-    public static void put(Ticker ticker, Integer quantity) {
+    public void put(Ticker ticker, Integer quantity) {
         MAP.put(ticker, quantity);
     }
 
-    public static int get(Ticker ticker) {
+    public int get(Ticker ticker) {
         return MAP.get(ticker);
     }
 }

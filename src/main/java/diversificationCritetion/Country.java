@@ -4,7 +4,7 @@ package diversificationCritetion;
  * Enumeration of all countries whose company's stocks are present in different funds.
  *
  * @author lennardjones
- * @version 1.1
+ * @version 1.2
  * @since 1.0
  */
 public enum Country {

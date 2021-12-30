@@ -10,7 +10,7 @@ public class Main {
         var priceInitializingThread = StockPrices.updateAllAsSeparateThread();
 
         /* Entering data by user */
-        StockQuantityEntering.enterAll();
+        var stockQuantity = StockQuantityEntering.enterAll();
 
         /*
         * Interrupting initialized downloading of data from the remote servers
@@ -18,7 +18,9 @@ public class Main {
         */
         priceInitializingThread.interrupt();
 
-        InvestmentPortfolio.show();
-        CountryDiversification.show();
+        var investmentPortfolio = new InvestmentPortfolio(stockQuantity);
+        investmentPortfolio.show();
+
+        new CountryDiversification(investmentPortfolio).show();
     }
 }
