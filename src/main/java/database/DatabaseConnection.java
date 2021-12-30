@@ -32,8 +32,11 @@ public class DatabaseConnection {
         }
 
         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
             connection = DriverManager.getConnection(url, user, password);
             statement = connection.createStatement();
+        } catch (ClassNotFoundException e) {
+            throw new SQLException("Can't load Driver for MySQL");
         } catch (SQLException e) {
             throw new SQLException("Can't connect");
         }

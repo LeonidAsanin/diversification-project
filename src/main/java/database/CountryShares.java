@@ -51,7 +51,7 @@ public class CountryShares {
         return COEFFICIENT_MAP.get(ticker)[country.getIndex()];
     }
 
-    private static void getAllValuesFromDatabase() {
+    public static void getAllValuesFromDatabase() {
         var databaseConnection = DatabaseConnection.getInstance();
         try {
             databaseConnection.connect("jdbc:mysql://localhost:3306/diversification_database",

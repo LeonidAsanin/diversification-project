@@ -7,6 +7,7 @@ import diversificationCritetion.Country;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -24,6 +25,10 @@ public class CountryDiversification {
         this.investmentPortfolio = investmentPortfolio;
         calculate();
         sort();
+    }
+
+    public Set<Map.Entry<Country, Double>> getEntrySet() {
+        return map.entrySet();
     }
 
     private void calculate() {
