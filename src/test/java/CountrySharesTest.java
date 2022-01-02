@@ -1,7 +1,7 @@
 import assets.FinExTicker;
 import assets.VTBTicker;
 import database.CountryShares;
-import diversificationCritetion.Country;
+import diversificationCriterion.Country;
 import org.junit.Assert;
 import org.junit.Test;
 
