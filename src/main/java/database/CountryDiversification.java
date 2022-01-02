@@ -2,7 +2,7 @@ package database;
 
 import assets.FinExTicker;
 import assets.VTBTicker;
-import diversificationCritetion.Country;
+import diversificationCriterion.Country;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;

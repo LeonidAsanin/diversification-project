@@ -1,4 +1,4 @@
-package diversificationCritetion;
+package diversificationCriterion;
 
 /**
  * Enumeration of all countries whose company's stocks are present in different funds.

@@ -3,7 +3,7 @@ package database;
 import assets.FinExTicker;
 import assets.Ticker;
 import assets.VTBTicker;
-import diversificationCritetion.Country;
+import diversificationCriterion.Country;
 
 import java.sql.SQLException;
 import java.util.*;
