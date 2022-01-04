@@ -9,10 +9,20 @@ public class PriceGetterTest {
     @Test(timeout = 60_000L)
     public void shouldGetAllValues() {
         for (var ticker : FinExTicker.values()) {
-            Assert.assertNotEquals(0, PriceGetter.get(ticker), 0.01);
+            try {
+                Assert.assertNotEquals(0, PriceGetter.get(ticker), 0.01);
+            } catch (Exception e) {
+                System.out.println("Exception was caught! Second attempt to get price of " + ticker);
+                Assert.assertNotEquals(0, PriceGetter.get(ticker), 0.01);
+            }
         }
         for (var ticker : VTBTicker.values()) {
-            Assert.assertNotEquals(0, PriceGetter.get(ticker), 0.01);
+            try {
+                Assert.assertNotEquals(0, PriceGetter.get(ticker), 0.01);
+            } catch (Exception e) {
+                System.out.println("Exception was caught! Second attempt to get price of " + ticker);
+                Assert.assertNotEquals(0, PriceGetter.get(ticker), 0.01);
+            }
         }
     }
 }
