@@ -18,7 +18,7 @@ public class Main {
         */
         priceInitializingThread.interrupt();
 
-        var investmentPortfolio = new InvestmentPortfolio(stockQuantity);
+        var investmentPortfolio = new InvestmentPortfolio(stockQuantity, true);
         investmentPortfolio.show();
 
         new CountryDiversification(investmentPortfolio).show();
