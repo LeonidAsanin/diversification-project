@@ -54,15 +54,16 @@ public class StockQuantityEntering {
      *
      * @return StockQuantity object that represents quantity of stocks entered by user
      */
-    public static StockQuantity enterAll() {
+    public static StockQuantity enterAll(Scanner scanner) {
         var stockQuantity = new StockQuantity();
+
         System.out.println("\nEnter the number of shares you have:");
-        var scanner = new Scanner(System.in);
+
         for (var ticker : FinExTicker.values())
             enter(ticker, scanner, stockQuantity);
         for (var ticker : VTBTicker.values())
             enter(ticker, scanner, stockQuantity);
-        scanner.close();
+
         return stockQuantity;
     }
 }
