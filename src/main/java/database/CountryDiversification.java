@@ -61,4 +61,12 @@ public class CountryDiversification {
             System.out.printf("%-15s %13.2f ₽ (%6.2f %%)\n", entry.getKey() + ":", entry.getValue(),
                               entry.getValue() / investmentPortfolio.getSum() * 100);
     }
+
+    public void showExtended() {
+        System.out.println("\nDiversification you have:");
+        /*
+        TO-DO
+         */
+        System.out.println("TO-DO");
+    }
 }

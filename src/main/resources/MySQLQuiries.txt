@@ -32,7 +32,17 @@ CREATE TABLE country_shares (
     Switzerland DECIMAL(5,4) DEFAULT 0,
     Taiwan DECIMAL(5,4) DEFAULT 0,
     Thailand DECIMAL(5,4) DEFAULT 0,
-    USA DECIMAL(5,4) DEFAULT 0
+    USA DECIMAL(5,4) DEFAULT 0,
+    Philippines DECIMAL(5,4) DEFAULT 0,
+    Turkey DECIMAL(5,4) DEFAULT 0,
+    Chile DECIMAL(5,4) DEFAULT 0,
+    Greece DECIMAL(5,4) DEFAULT 0,
+    Hungary DECIMAL(5,4) DEFAULT 0,
+    Colombia DECIMAL(5,4) DEFAULT 0,
+    Czech_Republic DECIMAL(5,4) DEFAULT 0,
+    Egypt DECIMAL(5,4) DEFAULT 0,
+    Peru DECIMAL(5,4) DEFAULT 0,
+    UAE DECIMAL(5,4) DEFAULT 0
 );
 
 INSERT INTO country_shares(Ticker, China) VALUES('FXCN', 1);
@@ -48,6 +58,17 @@ INSERT INTO country_shares(Ticker,
     .1755, .1175, .1165, .1165, .112, .086,
     .078, .076, .024, .023, .017, .017,
     .012, .01, .009, .006, .004
+);
+
+INSERT INTO country_shares(Ticker,
+    Taiwan, South_Korea, Brazil, Russia, South_Africa, Mexico,
+    Thailand, Indonesia, Malaysia, Philippines, Turkey, Chile,
+    Greece, Hungary, Colombia
+) VALUES(
+    'FXEM',
+    .1665, .1548, .1376, .1305, .0969, .0688,
+    .0686, .0553, .0353, .025, .0188, .0149,
+    .0115, .0089, .0057
 );
 
 INSERT INTO country_shares(Ticker, USA, Japan, China, Taiwan, South_Korea, Sweden, France, Poland)
@@ -70,6 +91,8 @@ INSERT INTO country_shares(Ticker, USA) VALUES('FXMM', 1);
 INSERT INTO country_shares(Ticker, Russia) VALUES('FXRB', 1);
 
 INSERT INTO country_shares(Ticker, USA, Luxembourg) VALUES('FXRD', .957, .043);
+
+INSERT INTO country_shares(Ticker, USA) VALUES('FXRE', 1);
 
 INSERT INTO country_shares(Ticker, Russia) VALUES('FXRL', 1);
 
@@ -108,3 +131,14 @@ INSERT INTO country_shares(Ticker, Russia) VALUES('VTBM', 1);
 INSERT INTO country_shares(Ticker, Russia) VALUES('VTBU', 1);
 
 INSERT INTO country_shares(Ticker, Russia) VALUES('VTBX', 1);
+
+INSERT INTO country_shares(Ticker,
+    Russia, Mexico, Indonesia, Greece, Hungary, Chile, China,
+    Turkey, Czech_Republic, Egypt,Saudi_Arabia, Peru, UAE,
+    Poland, Colombia, Philippines
+) VALUES(
+    'VTBY',
+    .5, .1, .06, .05, .046, .046, .042,
+    .029, .025, .024, .019, .015,
+    .013, .01, .01, .005
+);

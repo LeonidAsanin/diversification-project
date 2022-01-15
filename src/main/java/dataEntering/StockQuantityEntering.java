@@ -12,7 +12,7 @@ import java.util.Scanner;
  * Class that provides functionality for entering of the user's stock quantities.
  *
  * @author lennardjones
- * @version 1.2
+ * @version 1.3
  * @since 1.0
  */
 public class StockQuantityEntering {
