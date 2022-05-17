@@ -8,8 +8,7 @@ package assets;
  * @since 1.0
  */
 public enum VTBTicker implements Ticker {
-    VTBA("vtbfam"), VTBB("vtbrcbsb"), VTBE("vtbfars"), VTBG("vtbfzb"), VTBH("vtbfacd"),
-    VTBM("vtbfl"), VTBU("vtbfcresb"), VTBX("vtbfimb"), VTBY("vtbfevesm");
+    VTBB("vtbrcbsb"), VTBG("vtbfzb"), VTBM("vtbfl"), VTBX("vtbfimb");
 
     /**
      * To visit the official site for the specific fund we need its page name:<br>
