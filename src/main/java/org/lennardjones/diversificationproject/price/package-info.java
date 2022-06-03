@@ -5,4 +5,4 @@
  * @version 1.3
  * @since 1.0
  */
-package price;
+package org.lennardjones.diversificationproject.price;

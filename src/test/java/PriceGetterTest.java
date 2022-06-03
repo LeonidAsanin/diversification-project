@@ -1,8 +1,8 @@
-import assets.FinExTicker;
-import assets.VTBTicker;
+import org.lennardjones.diversificationproject.assets.FinExTicker;
+import org.lennardjones.diversificationproject.assets.VTBTicker;
 import org.junit.Assert;
 import org.junit.Test;
-import price.PriceGetter;
+import org.lennardjones.diversificationproject.price.PriceGetter;
 
 public class PriceGetterTest {
 
@@ -12,7 +12,7 @@ public class PriceGetterTest {
             try {
                 Assert.assertNotEquals(0, PriceGetter.get(ticker), 0.01);
             } catch (Exception e) {
-                System.out.println("Exception was caught! Second attempt to get price of " + ticker);
+                System.out.println("Exception was caught! Second attempt to get org.lennardjones.diversificationproject.price of " + ticker);
                 Assert.assertNotEquals(0, PriceGetter.get(ticker), 0.01);
             }
         }
@@ -20,7 +20,7 @@ public class PriceGetterTest {
             try {
                 Assert.assertNotEquals(0, PriceGetter.get(ticker), 0.01);
             } catch (Exception e) {
-                System.out.println("Exception was caught! Second attempt to get price of " + ticker);
+                System.out.println("Exception was caught! Second attempt to get org.lennardjones.diversificationproject.price of " + ticker);
                 Assert.assertNotEquals(0, PriceGetter.get(ticker), 0.01);
             }
         }

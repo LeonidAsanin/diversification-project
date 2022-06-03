@@ -5,4 +5,4 @@
  * @version 1.3
  * @since 1.0
  */
-package diversificationCriterion;
+package org.lennardjones.diversificationproject.diversificationCriterion;

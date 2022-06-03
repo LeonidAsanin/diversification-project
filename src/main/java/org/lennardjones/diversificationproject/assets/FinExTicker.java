@@ -1,4 +1,4 @@
-package assets;
+package org.lennardjones.diversificationproject.assets;
 
 /**
  * Enumeration of FinEx funds tickers.

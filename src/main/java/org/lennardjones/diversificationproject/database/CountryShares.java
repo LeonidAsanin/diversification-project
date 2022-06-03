@@ -1,9 +1,9 @@
-package database;
+package org.lennardjones.diversificationproject.database;
 
-import assets.FinExTicker;
-import assets.Ticker;
-import assets.VTBTicker;
-import diversificationCriterion.Country;
+import org.lennardjones.diversificationproject.assets.FinExTicker;
+import org.lennardjones.diversificationproject.assets.Ticker;
+import org.lennardjones.diversificationproject.assets.VTBTicker;
+import org.lennardjones.diversificationproject.diversificationCriterion.Country;
 
 import java.sql.SQLException;
 import java.util.*;
@@ -297,25 +297,5 @@ public class CountryShares {
         Arrays.fill(coefficientArray, 0.);
         coefficientArray[Country.Russia.getIndex()] = 1.;
         COEFFICIENT_MAP.put(VTBTicker.VTBX, coefficientArray);
-
-        coefficientArray = new Double[arraySize];
-        Arrays.fill(coefficientArray, 0.);
-        coefficientArray[Country.Russia.getIndex()] = .5;
-        coefficientArray[Country.Mexico.getIndex()] = .1;
-        coefficientArray[Country.Indonesia.getIndex()] = .06;
-        coefficientArray[Country.Greece.getIndex()] = .05;
-        coefficientArray[Country.Hungary.getIndex()] = .046;
-        coefficientArray[Country.Chile.getIndex()] = .046;
-        coefficientArray[Country.China.getIndex()] = .042;
-        coefficientArray[Country.Turkey.getIndex()] = .029;
-        coefficientArray[Country.Czech_Republic.getIndex()] = .025;
-        coefficientArray[Country.Egypt.getIndex()] = .024;
-        coefficientArray[Country.Saudi_Arabia.getIndex()] = .019;
-        coefficientArray[Country.Peru.getIndex()] = .015;
-        coefficientArray[Country.UAE.getIndex()] = .013;
-        coefficientArray[Country.Poland.getIndex()] = .01;
-        coefficientArray[Country.Colombia.getIndex()] = .01;
-        coefficientArray[Country.Philippines.getIndex()] = .005;
-        COEFFICIENT_MAP.put(VTBTicker.VTBY, coefficientArray);
     }
 }

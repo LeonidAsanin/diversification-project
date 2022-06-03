@@ -1,7 +1,7 @@
-import assets.FinExTicker;
-import assets.VTBTicker;
-import dataEntering.StockQuantityEntering;
-import database.StockQuantity;
+import org.lennardjones.diversificationproject.assets.FinExTicker;
+import org.lennardjones.diversificationproject.assets.VTBTicker;
+import org.lennardjones.diversificationproject.dataEntering.StockQuantityEntering;
+import org.lennardjones.diversificationproject.database.StockQuantity;
 import org.junit.Assert;
 import org.junit.Test;
 

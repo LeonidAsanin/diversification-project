@@ -1,4 +1,4 @@
-package database;
+package org.lennardjones.diversificationproject.database;
 
 import java.sql.*;
 import java.util.Objects;

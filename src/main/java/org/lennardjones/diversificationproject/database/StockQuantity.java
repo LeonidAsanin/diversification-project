@@ -1,6 +1,6 @@
-package database;
+package org.lennardjones.diversificationproject.database;
 
-import assets.Ticker;
+import org.lennardjones.diversificationproject.assets.Ticker;
 
 import java.util.HashMap;
 import java.util.Map;

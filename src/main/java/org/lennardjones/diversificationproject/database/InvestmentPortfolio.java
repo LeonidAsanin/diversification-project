@@ -1,8 +1,8 @@
-package database;
+package org.lennardjones.diversificationproject.database;
 
-import assets.FinExTicker;
-import assets.Ticker;
-import assets.VTBTicker;
+import org.lennardjones.diversificationproject.assets.FinExTicker;
+import org.lennardjones.diversificationproject.assets.Ticker;
+import org.lennardjones.diversificationproject.assets.VTBTicker;
 
 import java.util.HashMap;
 import java.util.Map;

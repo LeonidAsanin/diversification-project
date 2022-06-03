@@ -1,9 +1,9 @@
-package dataEntering;
+package org.lennardjones.diversificationproject.dataEntering;
 
-import assets.FinExTicker;
-import assets.Ticker;
-import assets.VTBTicker;
-import database.StockQuantity;
+import org.lennardjones.diversificationproject.assets.FinExTicker;
+import org.lennardjones.diversificationproject.assets.Ticker;
+import org.lennardjones.diversificationproject.assets.VTBTicker;
+import org.lennardjones.diversificationproject.database.StockQuantity;
 
 import java.util.Scanner;
 

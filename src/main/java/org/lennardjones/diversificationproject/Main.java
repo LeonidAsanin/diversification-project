@@ -1,7 +1,9 @@
-import database.StockPrices;
-import database.InvestmentPortfolio;
-import database.CountryDiversification;
-import dataEntering.StockQuantityEntering;
+package org.lennardjones.diversificationproject;
+
+import org.lennardjones.diversificationproject.database.StockPrices;
+import org.lennardjones.diversificationproject.database.InvestmentPortfolio;
+import org.lennardjones.diversificationproject.database.CountryDiversification;
+import org.lennardjones.diversificationproject.dataEntering.StockQuantityEntering;
 
 import java.util.Scanner;
 
@@ -18,7 +20,7 @@ public class Main {
 
         /*
         * Interrupting initialized downloading of data from the remote servers
-        * because next method gets all needed price information by its own
+        * because next method gets all needed org.lennardjones.diversificationproject.price information by its own
         */
         priceInitializingThread.interrupt();
 

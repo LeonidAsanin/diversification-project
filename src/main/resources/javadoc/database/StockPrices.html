@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="dc.created" content="2022-01-05">
-<meta name="description" content="declaration: package: database, class: StockPrices">
+<meta name="description" content="declaration: package: org.lennardjones.diversificationproject.database, class: StockPrices">
 <meta name="generator" content="javadoc/ClassWriterImpl">
 <link rel="stylesheet" type="text/css" href="../stylesheet.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../script-dir/jquery-ui.min.css" title="Style">
@@ -68,18 +68,18 @@ loadScripts(document, 'script');</script>
 <main role="main">
 <!-- ======== START OF CLASS DATA ======== -->
 <div class="header">
-<div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">database</a></div>
+<div class="sub-title"><span class="package-label-in-type">Package</span>&nbsp;<a href="package-summary.html">org.lennardjones.diversificationproject.database</a></div>
 <h1 title="Class StockPrices" class="title">Class StockPrices</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
-<div class="inheritance">database.StockPrices</div>
+<div class="inheritance">org.lennardjones.diversificationproject.database.StockPrices</div>
 </div>
 <section class="class-description" id="class-description">
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">StockPrices</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
 <div class="block">Class that obtains and stores stock prices of FinEx and VTB funds,
- also includes <a href="#get(assets.Ticker)"><code>get(Ticker)</code></a> method to retrieve the price by ticker.</div>
+ also includes <a href="#get(org.lennardjones.diversificationproject.assets.Ticker)"><code>get(Ticker)</code></a> method to retrieve the org.lennardjones.diversificationproject.price by ticker.</div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>1.0</dd>
@@ -103,10 +103,10 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#get(assets.Ticker)" class="member-name-link">get</a><wbr>(<a href="../assets/Ticker.html" title="interface in assets">Ticker</a>&nbsp;ticker)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#get(org.lennardjones.diversificationproject.assets.Ticker)" class="member-name-link">get</a><wbr>(<a href="../org.lennardjones.diversificationproject.assets/Ticker.html" title="interface in org.lennardjones.diversificationproject.assets">Ticker</a>&nbsp;ticker)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#update(assets.Ticker)" class="member-name-link">update</a><wbr>(<a href="../assets/Ticker.html" title="interface in assets">Ticker</a>&nbsp;ticker)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#update(org.lennardjones.diversificationproject.assets.Ticker)" class="member-name-link">update</a><wbr>(<a href="../org.lennardjones.diversificationproject.assets/Ticker.html" title="interface in org.lennardjones.diversificationproject.assets">Ticker</a>&nbsp;ticker)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Thread.html" title="class or interface in java.lang" class="external-link">Thread</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#updateAllAsSeparateThread()" class="member-name-link">updateAllAsSeparateThread</a>()</code></div>
@@ -129,9 +129,9 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="update(assets.Ticker)">
+<section class="detail" id="update(org.lennardjones.diversificationproject.assets.Ticker)">
 <h3>update</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">update</span><wbr><span class="parameters">(<a href="../assets/Ticker.html" title="interface in assets">Ticker</a>&nbsp;ticker)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">update</span><wbr><span class="parameters">(<a href="../org.lennardjones.diversificationproject.assets/Ticker.html" title="interface in org.lennardjones.diversificationproject.assets">Ticker</a>&nbsp;ticker)</span></div>
 </section>
 </li>
 <li>
@@ -141,9 +141,9 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="get(assets.Ticker)">
+<section class="detail" id="get(org.lennardjones.diversificationproject.assets.Ticker)">
 <h3>get</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">get</span><wbr><span class="parameters">(<a href="../assets/Ticker.html" title="interface in assets">Ticker</a>&nbsp;ticker)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">get</span><wbr><span class="parameters">(<a href="../org.lennardjones.diversificationproject.assets/Ticker.html" title="interface in org.lennardjones.diversificationproject.assets">Ticker</a>&nbsp;ticker)</span></div>
 </section>
 </li>
 </ul>

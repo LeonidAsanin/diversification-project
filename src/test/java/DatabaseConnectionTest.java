@@ -1,7 +1,7 @@
-import assets.FinExTicker;
-import assets.VTBTicker;
-import database.DatabaseConnection;
-import diversificationCriterion.Country;
+import org.lennardjones.diversificationproject.assets.FinExTicker;
+import org.lennardjones.diversificationproject.assets.VTBTicker;
+import org.lennardjones.diversificationproject.database.DatabaseConnection;
+import org.lennardjones.diversificationproject.diversificationCriterion.Country;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
