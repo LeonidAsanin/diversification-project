@@ -20,7 +20,7 @@ public class Main {
 
         /*
         * Interrupting initialized downloading of data from the remote servers
-        * because next method gets all needed org.lennardjones.diversificationproject.price information by its own
+        * because next method gets all needed price information by its own
         */
         priceInitializingThread.interrupt();
 
